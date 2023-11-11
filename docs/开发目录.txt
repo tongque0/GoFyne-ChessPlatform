@@ -1,0 +1,67 @@
+chess-platform/
+│
+├── cmd/
+│   ├── main.go                 # 主程序入口
+│
+├── internal/
+│   ├── game/
+│   │   ├── rules/              # 各棋类规则
+│   │   │   ├── chess/          # 国际象棋规则
+│   │   │   ├── go/             # 围棋规则
+│   │   │   ├── shogi/          # 将棋规则
+│   │   │   └── [other-chess-types-rules] # 其他棋类规则
+│   │   │
+│   │   └── common/             # 共享游戏逻辑
+│   │
+│   ├── engine/                 # 外部引擎接口
+│   │   ├── common/             # 共享引擎接口
+│   │   ├── chess_engine/       # 国际象棋引擎接口
+│   │   ├── go_engine/          # 围棋引擎接口
+│   │   └── [other-engine-interfaces] # 其他棋类引擎接口
+│   │
+│   └── network/                # 网络通信逻辑
+│       ├── client/             # 客户端逻辑
+│       └── server/             # 服务器逻辑
+│
+├── pkg/
+│   ├── gui/
+│   │   ├── common/             # 通用GUI组件
+│   │   ├── components/         # 界面组件
+│   │   │   ├── buttons/
+│   │   │   ├── dialogs/
+│   │   │   ├── menus/
+│   │   │   └── ... (其他界面组件)
+│   │   │
+│   │   ├── views/              # 主要视图
+│   │   │   ├── mainview/       # 主界面视图
+│   │   │   ├── gameview/       # 游戏界面视图
+│   │   │   ├── settingsview/   # 设置界面视图
+│   │   │   └── ... (其他视图)
+│   │   │
+│   │   ├── boards/             # 各棋类棋盘的GUI设计
+│   │   │   ├── chessboard/
+│   │   │   ├── goboard/
+│   │   │   ├── shogiboard/
+│   │   │   └── [other-boards]
+│   │   │
+│   │   └── utils/              # GUI相关的工具函数
+│   │
+│   ├── config/                 # 配置处理
+│   ├── utils/                  # 工具类和公共函数
+│   └── database/               # 数据库交互模块
+│
+├── assets/                     # 静态资源，如图片、样式文件等
+│   ├── images/
+│   └── styles/
+│
+├── docs/                       # 项目文档
+│   ├── architecture.md
+│   ├── contribution.md
+│   └── user_guide.md
+│
+├── scripts/                    # 辅助脚本，如构建脚本、测试脚本等
+│
+├── tests/                      # 测试文件
+│
+└── go.mod                      # Go模块定义
+└── go.sum                      # Go依赖列表
