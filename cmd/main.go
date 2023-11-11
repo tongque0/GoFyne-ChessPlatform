@@ -1,7 +1,8 @@
+// main.go
 package main
 
-import "fmt"
+import "GFCP/gui" // 替换为你的实际 gui 包路径
 
 func main() {
-	fmt.Println("Chess Platform is running111!")
+    gui.StartApp()
 }
