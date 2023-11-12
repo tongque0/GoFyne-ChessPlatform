@@ -21,7 +21,7 @@ go clean
 
 # 构建项目 - 输出Windows可执行文件
 Write-Host "Building project for Windows..."
-go build -o ./bin/app.exe ./cmd/main.go
+go build -ldflags -H=windowsgui -o ./bin/app.exe ./cmd/main.go
 
 # 运行测试 (可选)
 # Write-Host "Running tests..."
