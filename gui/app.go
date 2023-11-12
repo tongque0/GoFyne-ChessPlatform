@@ -1,37 +1,22 @@
-// gui/app.go
 package gui
 
 import (
-	"GFCP/gui/views"
+	"GFCP/gui/route"
 
 	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/app"
 )
 
-// SetupUI 构建并返回应用程序的主界面
-func SetupUI(app fyne.App) fyne.Window {
-	window := app.NewWindow("Chess Platform")
-
-	var showMainView, showSettingsView func()
-
-	showMainView = func() {
-		mainView := views.CreateMainView(showSettingsView)
-		window.SetContent(mainView)
-	}
-
-	showSettingsView = func() {
-		settingsView := views.CreateSettingsView(showMainView)
-		window.SetContent(settingsView)
-	}
-
-	showMainView() // 默认显示主界面
-
-	window.Resize(fyne.NewSize(600, 400))
-	return window
-}
 func StartApp() {
 	myApp := app.New()
-	mainWindow := SetupUI(myApp)
+	window := myApp.NewWindow("Chess Platform")
+	window.Resize(fyne.NewSize(800, 600))
+	router := route.NewRouter(window)
 
-	mainWindow.ShowAndRun()
+	// 使用 Router 类型的实例
+	route.ConfigureRoutes(router, route.AppRoutes(router))
+
+	router.GoTo("main")
+
+	window.ShowAndRun()
 }
